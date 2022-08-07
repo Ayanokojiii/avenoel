@@ -1,5 +1,10 @@
 function set_up_pagination(array, templateMessage){
-
+  if(ajax_request.active == false){
+    hideSpinner()
+    $('.pagination-custom').addClass('display-none')
+    $(".original-topics").removeClass('display-none')
+    return;
+  }
   let restOfPages = array.length % 20
   let pageNumber = Math.ceil(array.length / 20)
   if(restOfPages == 0){
@@ -74,9 +79,14 @@ function regexMaker(searchString){
 }
 
 function throwSearchOnClick(){
-  ajax_request.active = false
-  $('.hstack button[type]').click(()=>{
-    if(a2sm_on.active == true){
+
+  $('.glyphicon-search').parent('button').click(()=>{
+
+      if(a2sm_on.active == true){
+      $('.page-group:not(.page-group-1)').remove()
+      $('.page-group-1 *').remove()
+      $("[button-page-number]:not([button-page-number]:first)").remove()
+      ajax_request.active = true
       var delay_req;
       var page = 1;
       if($('[name="type"]').eq(0).val() == 'sujet-a2rm'){
@@ -88,14 +98,28 @@ function throwSearchOnClick(){
       let searchString = $('[name=search]').val()
       if(!/^\s*$/ig.test(searchString)){
         search_pattern = regexMaker(searchString)
-        ajax_request.active = true
         gPageNumber = 1;
         entry('https://avenoel.org/forum/' + gPageNumber)
         function sujetLoop(){
+          $("#search-module-pagination").removeClass('display-nones')
+          $('.pagination-custom').removeClass('display-none')
+
           let timeout2 = setInterval(()=>{
-            gPageNumber++
-            gUrl = 'https://avenoel.org/forum/' + gPageNumber
-            entry(gUrl)
+            if(ajax_request.active == false){
+              hideSpinner()
+              $('.pagination-custom').addClass('display-none')
+              $(".original-topics").removeClass('display-none')
+              return;
+            }
+            else{
+              $("#search-module-pagination").removeClass('display-nones')
+              $('.pagination-custom').removeClass('display-none')
+
+              gPageNumber++
+              gUrl = 'https://avenoel.org/forum/' + gPageNumber
+              entry(gUrl)
+            }
+
           },300)
         }
         if($('[name="type"]').eq(0).val() == 'sujet-a2rm'){
@@ -104,4 +128,5 @@ function throwSearchOnClick(){
       }
     }
   })
+
 }
