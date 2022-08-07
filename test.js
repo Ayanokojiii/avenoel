@@ -50,10 +50,6 @@ function set_up_pagination(array, templateMessage){
     })
   })
 
-  gPageNumber++
-  gUrl = 'https://avenoel.org/forum/' + gPageNumber
-  entry(gUrl)
-
 }
 
 
@@ -96,6 +92,16 @@ function throwSearchOnClick(){
         ajax_request.active = true
         gPageNumber = 1;
         entry('https://avenoel.org/forum/' + gPageNumber)
+        function sujetLoop(){
+          let timeout2 = setInterval(()=>{
+            gPageNumber++
+            gUrl = 'https://avenoel.org/forum/' + gPageNumber
+            entry(gUrl)
+          },300)
+        }
+        if($('[name="type"]').eq(0).val() == 'sujet-a2rm'){
+          sujetLoop()
+        }
       }
     }
   })
