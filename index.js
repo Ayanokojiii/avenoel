@@ -1,10 +1,3 @@
-const pagination_css = GM_getResourceText("IMPORTED_PAGINATION_CSS");
-const spinner_css = GM_getResourceText("IMPORTED_SPINNER_CSS");
-const custom_css = GM_getResourceText("IMPORTED_CUSTOM_CSS");
-GM_addStyle(pagination_css);
-GM_addStyle(spinner_css);
-GM_addStyle(custom_css);
-
 //Data collections
 var arrayInTopicMessagesIds = []
 var arrayInTopicMessages = []
