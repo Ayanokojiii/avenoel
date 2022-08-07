@@ -31,7 +31,7 @@ function set_up_pagination(array, templateMessage){
     })
   })
 
-  if($('[name="type"]').eq(0).val() == 'message-a2rm'){
+  //if($('[name="type"]').eq(0).val() == 'message-a2rm'){
 
     gPageNumber++
     gUrl = 'https://avenoel.org/forum/' + gPageNumber
@@ -47,7 +47,7 @@ function set_up_pagination(array, templateMessage){
       },500)
     }
     checkHere()
-  }
+  //}
 
 }
 
