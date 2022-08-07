@@ -9,10 +9,13 @@ function insertButtonWhiteHand(){
   </div>`;
   if($('.wHand').length == 0){
     $(buttonWHand).appendTo('.hstack')
-    $('.wHand').click(()=>{
-      ajax_request.active = false
-    })
   }
+  $('.wHand').click(()=>{
+    ajax_request.active = false
+    hideSpinner()
+    $('.pagination-custom').addClass('display-none')
+    $(".original-topics").removeClass('display-none')
+  })
 }
 
 function hideButtonWhiteHand(){
