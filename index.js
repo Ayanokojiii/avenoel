@@ -1,40 +1,4 @@
-// ==UserScript==
-// @name         Avenoel Module Search
-// @namespace    http://avenoel.org
-// @version      0.1
-// @description  try to take over the world!
-// @author       SEHV
-// @match        https://avenoel.org/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=avenoel.org
-// @grant    GM_addStyle
-// @grant    GM.getValue
-// @grant      GM_getResourceText
-// @grant      GM_addStyle
-// @resource IMPORTED_PAGINATION_CSS https://github.com/superRaytin/paginationjs/blob/master/dist/pagination.css
-// @resource IMPORTED_SPINNER_CSS file:///Users/user/Desktop/avenoel/spinner.css
-// @resource https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css
-// @resource IMPORTED_CUSTOM_CSS file:///Users/user/Desktop/avenoel/additionnal-style.css
 
-// @require http://code.jquery.com/jquery-3.4.1.min.js
-// @require https://raw.githubusercontent.com/superRaytin/paginationjs/master/dist/pagination.min.js
-// @require file:///Users/user/Desktop/avenoel/interface-to-normal.js
-// @require file:///Users/user/Desktop/avenoel/spinner.js
-// @require file:///Users/user/Desktop/avenoel/test.js
-// @require file:///Users/user/Desktop/avenoel/customize-form-control.js
-// @require file:///Users/user/Desktop/avenoel/a2s_module_on.js
-// @require file:///Users/user/Desktop/avenoel/button-white-hand.js
-
-// @require file:///Users/user/Desktop/avenoel/index.js
-// @require https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js
-// ==/UserScript==
-
-
-const pagination_css = GM_getResourceText("IMPORTED_PAGINATION_CSS");
-const spinner_css = GM_getResourceText("IMPORTED_SPINNER_CSS");
-const custom_css = GM_getResourceText("IMPORTED_CUSTOM_CSS");
-GM_addStyle(pagination_css);
-GM_addStyle(spinner_css);
-GM_addStyle(custom_css);
 
 //Data collections
 var arrayInTopicMessagesIds = []
