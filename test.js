@@ -12,18 +12,23 @@ function set_up_pagination(array, templateMessage){
       </li>`;
     $('#search-module-pagination li').last().before(newButPage)
 
-    numberMatchMessage++
+    if($('[name="type"]').eq(0).val() == 'message-a2rm'){
 
-    var currentMessNb = numberMatchMessage
-    function checkHere(){
-      containerObserver = setInterval(function(){
-        if(currentMessNb == numberMatchMessage){
-          entry(gUrl)
-          clearInterval(containerObserver)
-        }
-      },1000)
+      numberMatchMessage++
+      var currentMessNb = numberMatchMessage
+      function checkHere(){
+        containerObserver = setInterval(function(){
+          if(currentMessNb == numberMatchMessage){
+            gPageNumber++
+            gUrl = 'https://avenoel.org/forum/' + gPageNumber
+            entry(gUrl)
+            entry(gUrl)
+            clearInterval(containerObserver)
+          }
+        },1000)
+      }
+      checkHere()
     }
-    checkHere()
 
     //set up new page
 
@@ -45,6 +50,8 @@ function set_up_pagination(array, templateMessage){
     })
   })
 
+  gPageNumber++
+  gUrl = 'https://avenoel.org/forum/' + gPageNumber
   entry(gUrl)
 
 }
