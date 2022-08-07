@@ -14,18 +14,18 @@ function set_up_pagination(array, templateMessage){
 
     if($('[name="type"]').eq(0).val() == 'message-a2rm'){
 
+      gPageNumber++
+      gUrl = 'https://avenoel.org/forum/' + gPageNumber
+      entry(gUrl)
+
       numberMatchMessage++
       var currentMessNb = numberMatchMessage
       function checkHere(){
         containerObserver = setInterval(function(){
           if(currentMessNb == numberMatchMessage){
-            gPageNumber++
-            gUrl = 'https://avenoel.org/forum/' + gPageNumber
             entry(gUrl)
-            entry(gUrl)
-            clearInterval(containerObserver)
           }
-        },1000)
+        },500)
       }
       checkHere()
     }
