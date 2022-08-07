@@ -1,7 +1,5 @@
 function hideSpinner(){
-  if($("#loading").hasClass('display-none')==false){
     $("#loading").addClass('display-none')
-  }
 }
 
 function showSpinner(){
