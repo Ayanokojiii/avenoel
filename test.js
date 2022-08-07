@@ -31,28 +31,24 @@ function set_up_pagination(array, templateMessage){
     })
   })
 
-  //if($('[name="type"]').eq(0).val() == 'message-a2rm'){
-
 try{
   gPageNumber++
   let url = 'https://avenoel.org/forum/' + gPageNumber
   entry(url)
 }
-catch(){
-  numberMatchMessage++
-  var currentMessNb = numberMatchMessage
-  function checkHere(){
-    containerObserver = setInterval(function(){
-      if(currentMessNb == numberMatchMessage){
-        entry(gUrl)
-      }
-    },500)
-  }
-}
 
 
 
-  //}
+    numberMatchMessage++
+    var currentMessNb = numberMatchMessage
+    function checkHere(){
+      containerObserver = setInterval(function(){
+        if(currentMessNb == numberMatchMessage){
+          entry(gUrl)
+        }
+      },500)
+    }
+    checkHere()
 
 }
 
