@@ -42,9 +42,23 @@ ajax_request.registerListener(function(active) {
     console.log('activate == true')
     showSpinner()
     showButtonWhiteHand()
+    hide_data_container()
+    $('#data-container').removeClass('display-none')
+    $('.pagination-custom').removeClass('display-none')
+    $(".original-topics").addClass('display-none')
+
   }
   else if(active == false){
     console.log('activate == akse')
-    returnInterfaceToNormal()
+    $('.pagination-custom').addClass('display-none')
+    $(".original-topics").removeClass('display-none')
+    $('.pagination-custom').addClass('display-none')
+    $(".original-topics").removeClass('display-none')
+    $('.pagination-custom').addClass('display-none')
+    $(".original-topics").removeClass('display-none')
+
+    $('#data-container').addClass('display-none')
+    $('.pagination-custom').addClass('display-none')
+    $(".original-topics").removeClass('display-none')
   }
 });
