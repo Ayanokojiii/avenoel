@@ -8,22 +8,28 @@ function cloneStyle(original, target){
 }
 
 function hide_topics_list(){
-  if(!$('.table-striped').hasClass('display-none')){
-    $('.table-striped').addClass('display-none')
-  }
+    $(".original-topics").addClass('display-none')
 }
 
 function show_topics_list(){
-  if($('.table-striped').hasClass('display-none')){
-    $('.table-striped').removeClass('display-none')
-  }
+    $(".original-topics").removeClass('display-none')
+}
+
+function hide_data_container(){
+    $('#data-container').addClass('display-none')
+    $('#search-module-pagination').addClass('display-none')
+}
+
+function show_data_container(){
+    $('#data-container').removeClass('display-none')
+    $('#search-module-pagination').removeClass('display-none')
 }
 
 function appendPagination(){
-  $('.pagination-default').eq(0).append(`
-    <div class="pagination-custom">
-      <div id="loading" class="display-none"></div>
-      <div id="search-module-pagination" style="display:none">
+  $('.pagination-default').eq(0).after(`
+    <div class="pagination-custom display-none">
+      <div id="loading"></div>
+      <div id="search-module-pagination">
         <ul class="pagination pagination-bar">
           <li class="page-item">
             <a class="page-link" aria-label="Previous">
@@ -42,7 +48,7 @@ function appendPagination(){
           </li>
         </ul>
       </div>
-      <div id="data-container" style="text-align: left !important">
+      <div id="data-container" style="text-align: left !important" class="display-none">
         <div page-number="1" class="page-group page-group-1"></div>
       </div>
     </div>
@@ -65,7 +71,7 @@ function customize_form_control(){
   </option>`;
   let selectTypeOfSearch =
   `<div class="select-addendum display-none">
-    <select name="search-type" style="max-width: 120px" class="form-control d-none">
+    <select name="search-type" style="max-width: 120px" class="form-control display-none">
       <option value="at-least-one">
         Au moins l'un des termes
       </option>
@@ -88,7 +94,7 @@ function customize_form_control(){
   $('fieldset .hstack div').eq(3).before(pageInterval)
 
   $(document).on('change','select:first.form-control',function(e){
-    var fieldValues = /message-a2rm|sujet-a2rm|auteur-a2rm/
+    var fieldValues = /message-a2rm|sujet-a2rm|auteur-a2rm/ig
       if(e.currentTarget.value.match(fieldValues)){
         a2sm_on.active = true
       }
@@ -105,9 +111,11 @@ function activate_select_fields(){
   $('fieldset button').attr('type','button')
   $('fieldset button').attr('type','button')
   $('.select-addendum').removeClass('display-none')
+  showButtonWhiteHand()
 }
 
 function deactive_select_fields(){
   $('fieldset button').attr('type','submit')
   $('.select-addendum').addClass('display-none')
+  hideButtonWhiteHand()
 }
