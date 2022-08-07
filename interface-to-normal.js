@@ -1,11 +1,11 @@
 function returnInterfaceToNormal(){
-  emptyArrays()
   emptyPages()
   hideSpinner()
   hideButtonWhiteHand()
+  hide_data_container()
   show_topics_list()
   $('.pull-right, .pull-left').removeClass('display-none')
-  $('#data-container').addClass('display-none')
+  show_topics_list()
 }
 
 function emptyArrays(){
@@ -16,6 +16,5 @@ function emptyArrays(){
 }
 
 function emptyPages(){
-  $('[page-number]:not([page-number]:first)').remove()
-  $('[page-number]:first *').remove()
+  $('#search-module-pagination').remove()
 }
