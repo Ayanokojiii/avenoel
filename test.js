@@ -31,13 +31,11 @@ function set_up_pagination(array, templateMessage){
     })
   })
 
-try{
-  gPageNumber++
-  let url = 'https://avenoel.org/forum/' + gPageNumber
-  entry(url)
-}
+  if($('[name="type"]').eq(0).val() == 'message-a2rm'){
 
-
+    gPageNumber++
+    gUrl = 'https://avenoel.org/forum/' + gPageNumber
+    entry(gUrl)
 
     numberMatchMessage++
     var currentMessNb = numberMatchMessage
@@ -49,6 +47,7 @@ try{
       },500)
     }
     checkHere()
+  }
 
 }
 
